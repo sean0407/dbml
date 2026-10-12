@@ -49,7 +49,7 @@ export default class MetadataInterpreter {
       if (!value) continue;
 
       this.values[key] = {
-        value: key === 'note' ? normalizeNote(value) : value,
+        value: (key === 'note' && typeof value === 'string') ? normalizeNote(value) : value,
         token: getTokenPosition(stmt),
       };
     }
